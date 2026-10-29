@@ -4,8 +4,8 @@
 
 ## Prototype link
 
-_The public share URL from your build tool. No share URL? A screenshot of the working flow is fine, the prompt is what is assessed._
-
+[_The public share URL from your build tool. No share URL? A screenshot of the working flow is fine, the prompt is what is assessed._
+](https://careflow-blueprint-studio.lovable.app)
 _____
 
 ## What it demonstrates
@@ -16,6 +16,6 @@ _____
 
 ## Debrief
 
-- **What worked:** _____
-- **What broke / felt like a toy:** _____
-- **What I'd change next pass:** _____
+- **What worked:** Specifying the expected output format and clearly defining the product manager role helped generate a mostly practical prototype.
+- **What broke / felt like a toy:** - The gaps tab felt too good to be true. Seemed like too many assumptions were in place. Adding more specificity in the prompt in this area would help. 
+- **What I'd change next pass:** Adding more context on the intended functionality for each feature and reduce the scope in the beginning and then increase iteratively so only truly key problems are addressed.
