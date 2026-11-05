@@ -10,52 +10,52 @@ RocketShip PMs need this handled: Juno is an assistant that helps me manage cust
 
 | Surface | Specification |
 |---|---|
-| 01 Context | Customer feedback portal from Aha!, Client meeting feedback summaries from Google Docs, Jira bugs trends, Current Jira feedback, Company… |
-| 02 Tools | Juno must be able to retrieve and read customer feedback from Aha!, Jira, Slack, and Google Meet. |
-| 03 Loop | Juno must try  synthesize the feedback from all the sources listed above and if any tool is not working, atleast 2 attempts need to be made… |
-| 04 Memory | last successful run / draft that I approved |
-| 05 Permissions | read auto · draft auto · write confirm · send blocked |
-| 06 Verification | I tell it if the draft was right or not |
+| 01 Context | Customer feedback portal from Aha!, customer meeting feedback summaries from Google Docs, Jira bugs and feedback, customer-related… |
+| 02 Tools | Juno must be able to retrieve and read customer feedback from Aha!, Jira, Slack, and Google Docs. |
+| 03 Loop | Juno must try to retrieve and synthesize feedback from all the sources listed above. |
+| 04 Memory | Juno must remember its role, requirements, and approved instructions. |
+| 05 Permissions | read auto · draft auto · write auto · send confirm |
+| 06 Verification | Juno must verify that every recommendation is supported by customer feedback and includes the source of the information. |
 
 ## 01 Context · Data Requirements
 
 **Required sources, and exclusions**
 
-Customer feedback portal from Aha!, Client meeting feedback summaries from Google Docs, Jira bugs trends, Current Jira feedback, Company Product Strategy document. Exclude any internal discussions unrelated to customer feedback.
+Customer feedback portal from Aha!, customer meeting feedback summaries from Google Docs, Jira bugs and feedback, customer-related conversations from Slack, and the Company Product Strategy document in Google Docs. Exclude internal discussions that are not related to customer feedback.
 
 **How fresh must it be**
 
-The data needs to be checked every 24 hours. Changes must be made to suggestions only when the recommendations made previously are changing. However, I want the data updates to be done every 24 hours so the latest information is accessible at anytime.
+The data needs to be checked every 24 hours so the latest information is available. Recommendations should only be updated when new information changes the previously identified themes, priorities, or suggestions. Juno should also identify when any source is unavailable.
 
 ## 02 Tools · System Capabilities
 
 **The verb list**
 
-Juno must be able to retrieve and read customer feedback from Aha!, Jira, Slack, and Google Meet. It must identify themes, patterns from all these sources and use the product strategy document in Google Doc to create development features, prioritize the backlog on the PM board in Jira.
+Juno must be able to retrieve and read customer feedback from Aha!, Jira, Slack, and Google Docs. It must identify common themes, patterns, and recurring customer issues across all sources. It should use the Company Product Strategy document to generate development feature suggestions, prioritize the backlog, and create proposed Jira tickets with clear descriptions and acceptance criteria.
 
 **Deliberate omissions**
 
-Juno will not be allowed to modify existing Jira tickets or  non-customer feedback related conversations. Changes to existing Jira tickets that are needed will be specified in a new google doc that the PM can review and take the next steps.
+Juno will not be allowed to modify existing Jira tickets or send messages or emails. Any suggested changes to existing Jira tickets must be documented in a new Google Doc for manual review.
 
 ## 03 Loop · AI Costs & Latency
 
 **Turn ceiling and escalation**
 
-Juno must try  synthesize the feedback from all the sources listed above and if any tool is not working, atleast 2 attempts need to be made to fetch the information. If any source is still not reachable, then an email alert needs to be created.
+Juno must try to retrieve and synthesize feedback from all the sources listed above. If any tool is not working, it must make at least two attempts to retrieve the information. If the source is still unavailable, an email alert must be generated to notify the team at team@gmail.com.
 
 **Latency and cost target**
 
-_(not yet specified)_
+Juno should generate a consolidated feedback synthesis within 30 seconds. The average processing cost should remain minimal. If processing time exceeds 30 seconds, an email alert must be generated to team@gmail.com
 
 ## 04 Memory · Data Requirements
 
 **What persists, at what scope**
 
-last successful run / draft that I approved
+Juno must remember its role, requirements, and approved instructions. It should always retain the last human-approved recommendations and backlog priorities so that future suggestions can be compared against the previous approved state. It should not treat its own unapproved suggestions as approved decisions.
 
 **Expiry and write rules**
 
-_(not yet specified)_
+If a human corrects something generated by Juno, the human correction should always take priority over previous AI-generated suggestions. Any new recommendations must consider the latest approved information.
 
 ## 05 Permissions · AI Risks & Mitigations
 
@@ -65,22 +65,22 @@ _(not yet specified)_
 |---|---|
 | read | auto |
 | draft | auto |
-| write | confirm |
-| send | blocked |
+| write | auto |
+| send | confirm |
 
 **Justification**
 
-Draft without asking me, do not edit or send this to anyone
+Juno can automatically read customer feedback and create Jira tickets without human confirmation. However, making any changes to existing tickets must always require human confirmation. Juno needs to provide these changes in a Google doc. Sending emails or messages is not allowed. Juno can prepare an email draft, but a human must handle sending it.
 
 ## 06 Verification · AI Testing & Measurement
 
 **The check before output ships**
 
-I tell it if the draft was right or not
+Juno must verify that every recommendation is supported by customer feedback and includes the source of the information. Before creating Jira tickets, it must ensure that the ticket description, acceptance criteria, and priority are aligned with the customer feedback and Company Product Strategy. Juno must not create duplicate tickets or make changes to existing Jira tickets. The google doc will be reviewed and then Juno will be provided with confirmation to proceed with making changes to the existing tickets.
 
 **Failure behaviour**
 
-_(not yet specified)_
+Juno should not make assumptions when information is missing or unclear. These gaps must be documented in the Google Doc along with the suggested changes to existing Jira tickets for manual review. Juno must not send emails or messages under any circumstances.
 
 ## Eval plan
 
@@ -89,3 +89,4 @@ _Stub. Module 6 fills this in: golden set, pass thresholds, and regression caden
 ## Out of scope
 
 Any capability not in the verb list above, and any action tiered `blocked`. Both are decisions on the record, not omissions.
+
