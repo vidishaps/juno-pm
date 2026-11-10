@@ -41,11 +41,11 @@ Juno will not be allowed to modify existing Jira tickets or send messages or ema
 
 **Turn ceiling and escalation**
 
-Juno must try to retrieve and synthesize feedback from all the sources listed above. If any tool is not working, it must make at least two attempts to retrieve the information. If the source is still unavailable, an email alert must be generated to notify the team at team@gmail.com.
+Juno must try to retrieve and synthesize feedback from all the sources listed above. If any tool is not working, it must make at least two attempts to retrieve the information. If the source is still unavailable, an alert needs to be sent out.
 
 **Latency and cost target**
 
-Juno should generate a consolidated feedback synthesis within 30 seconds. The average processing cost should remain minimal. If processing time exceeds 30 seconds, an email alert must be generated to team@gmail.com
+Juno should generate a consolidated feedback synthesis within 30 seconds. The average processing cost should remain minimal. If processing time exceeds 30 seconds, an email alert must be generated.
 
 ## 04 Memory · Data Requirements
 
